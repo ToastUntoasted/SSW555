@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content="width=device-width, initial-scale=1.0">
-        <title>Weather Dashboard</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <div id="weather-container">
-            <h2>Weather Dashboard</h2>
-            <input type="text" id="city" placeholder="Enter City">
-            <button onclick="getWeather()">Search</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
 
-            <img id='weather-icon' alt="Weather Icon">
+<body>
+    <div id="weather-container">
 
-            <div id="temp-div"></div>
+        <h2>Weather Dashboard</h2>
 
-            <div id="weather-info"></div>
+        <!-- ===== TOP SECTION (LEFT: SEARCH | RIGHT: TEMP) ===== -->
+        <div class="top-section">
 
-            <div id="hourly-forecast"></div>
+            <!-- LEFT SIDE -->
+         <div class="left-panel">
+    <input id="city">
+    <button onclick="getWeather()">Search</button>
+</div>
+
+<div class="right-panel">
+    <img id="weather-icon">
+    <div id="temp-div"></div>
+    <div id="weather-info"></div>
+</div>
+
         </div>
-        <script src="./script.js"></script>
-    </body>
+
+        <!-- ===== HOURLY FORECAST ===== -->
+        <div id="hourly-forecast"></div>
+
+        <!-- ===== CONTROLS ===== -->
+        <div class="controls">
+            <button onclick="toggleUnits()">°F / °C</button>
+            <button onclick="toggleTimeFormat()">12h / 24h</button>
+            <button onclick="toggleDarkMode()">🌙</button>
+        </div>
+
+        <!-- ===== FAVORITES ===== -->
+        <h3>Favorites</h3>
+        <ul id="favorites"></ul>
+        <button onclick="saveFavorite()">⭐ Save City</button>
+
+        <!-- ===== DAILY FORECAST ===== -->
+        <h3 id="forecast-heading">5-Day Forecast</h3>
+        <div id="daily-forecast"></div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
 </html>
